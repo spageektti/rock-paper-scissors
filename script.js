@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const computerChoiceElement = document.getElementById('computerChoice');
     const gameResultElement = document.getElementById('gameResult');
     const resetBtn = document.getElementById('resetBtn');
+    const playerScoreElement = document.getElementById('playerScore');
+    const computerScoreElement = document.getElementById('computerScore');
+
+    let playerScore = 0;
+    let computerScore = 0;
 
     const choicesArray = ['rock', 'paper', 'scissors'];
 
@@ -13,15 +18,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getResult(userChoice, computerChoice) {
         if (userChoice === computerChoice) {
-            return "It's a draw!";
+            return "draw";
         } else if (
             (userChoice === 'rock' && computerChoice === 'scissors') ||
             (userChoice === 'paper' && computerChoice === 'rock') ||
             (userChoice === 'scissors' && computerChoice === 'paper')
         ) {
-            return "You win! 🎉";
+            playerScore++;
+            return "win";
         } else {
-            return "You lose! 💀";
+            computerScore++;
+            return "lose";
+        }
+    }
+
+    function updateScore() {
+        playerScoreElement.textContent = `Player: ${playerScore}`;
+        computerScoreElement.textContent = `Computer: ${computerScore}`;
+    }
+
+    function displayResult(result) {
+        if (result === "win") {
+            gameResultElement.textContent = "You win! 🎉";
+            gameResultElement.className = "win-message";
+        } else if (result === "lose") {
+            gameResultElement.textContent = "You lose! 💀";
+            gameResultElement.className = "lose-message";
+        } else {
+            gameResultElement.textContent = "It's a draw!";
+            gameResultElement.className = "draw-message";
         }
     }
 
@@ -32,7 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             userChoiceElement.textContent = `You chose: ${userChoice}`;
             computerChoiceElement.textContent = `Computer chose: ${computerChoice}`;
-            gameResultElement.textContent = getResult(userChoice, computerChoice);
+
+            const result = getResult(userChoice, computerChoice);
+            displayResult(result);
+
+            updateScore();
         });
     });
 
@@ -40,5 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         userChoiceElement.textContent = '';
         computerChoiceElement.textContent = '';
         gameResultElement.textContent = '';
+        playerScore = 0;
+        computerScore = 0;
+        updateScore();
+        gameResultElement.className = "";
     });
 });

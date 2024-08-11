@@ -1,44 +1,120 @@
-html, body, main {
+html,
+body,
+main {
     height: 100%;
-    background-color: black;
-    color: white;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text color */
+    font-family: "Fira Mono", monospace;
 }
 
 main {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    font-family: "Fira Mono", monospace;
+    flex-direction: column;
 }
 
-button {
-    color: white;
-    background-color: black;
-    border: solid 1px white;
+h1 {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #00ffff; /* Neon cyan */
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+#scoreboard {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 400px; /* Responsive max width */
+    margin-bottom: 20px;
+}
+
+#scoreboard div {
+    padding: 10px;
     border-radius: 5px;
-    padding: 10px 20px;
+    color: #ffffff;
     font-size: 18px;
+    text-align: center;
+}
+
+#playerScore {
+    background-color: #00ff00; /* Neon green */
+    border: 2px solid #00ff00; /* Neon green border */
+}
+
+#computerScore {
+    background-color: #ff0000; /* Neon red */
+    border: 2px solid #ff0000; /* Neon red border */
+}
+
+#choices button {
+    color: #ffffff;
+    background-color: #000000; /* Black */
+    border: 2px solid #ffffff; /* White border */
+    border-radius: 10px;
+    padding: 20px 40px;
+    font-size: 24px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    margin: 10px;
+    text-shadow: 0 0 5px #ffffff;
 }
 
-button:hover {
-    background-color: darkgray;
+#choices button:hover {
+    background-color: #333333; /* Darker gray */
 }
 
-button:active {
-    background-color: gray;
+#choices button:active {
+    background-color: #555555; /* Even darker gray */
     transform: scale(0.98);
-}
-
-button:focus {
-    outline: none;
-    box-shadow: 0 0 5px white;
 }
 
 #result p {
     margin: 10px 0;
-    font-size: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #ffcc00; /* Neon yellow */
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
 }
+
+.win-message {
+    color: #00ff00 !important; /* Neon green for winning */
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00 !important;
+}
+
+.lose-message {
+    color: #ff0000 !important; /* Neon red for losing */
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000 !important;
+}
+
+.draw-message {
+    color: #f535aa !important; /* Neon pink for drawing */
+    text-shadow: 0 0 10px #f535aa, 0 0 20px #f535aa, 0 0 30px #f535aa !important;
+}
+
+#resetBtn {
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #000000; /* Black */
+    border: solid 1px #ffffff; /* White border */
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#resetBtn:hover {
+    background-color: #333333; /* Darker gray */
+}
+
+#resetBtn:active {
+    background-color: #555555; /* Even darker gray */
+    transform: scale(0.98);
+}
+
+#resetBtn:focus {
+    outline: none;
+    box-shadow: 0 0 5px #ffffff;
+}
+ 
